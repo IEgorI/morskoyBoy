@@ -10,9 +10,19 @@
     <Window.Resources>
         <DataTemplate DataType="{x:Type local:CellVM}">
             <Border BorderBrush="#400F" BorderThickness="1" Background="Transparent"   
-                                        Width="30" Height="30" Margin="0,0,-1,-1"
-                                        MouseDown="Border_MouseDown">
-                <Grid>
+                                        Width="31" Height="31" Margin="0,0,-1,-1"
+                                        MouseDown="Border_MouseDown" MouseEnter="Border_MouseEnter">
+                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform Angle="{Binding Angle}" CenterX="15" CenterY="15"/>
+                            <ScaleTransform ScaleX="{Binding ScaleX}" ScaleY="{Binding ScaleY}"
+                                            CenterX="15" CenterY="15"/>
+                            <SkewTransform CenterX="15" CenterY="15"
+                                           AngleX="{Binding AngleX}" AngleY="{Binding AngleY}"/>
+                            <TranslateTransform X="{Binding ShiftX}" Y="{Binding ShiftY}"/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
                     <Ellipse Width="7" Height="7" Fill="Red" 
                                                  HorizontalAlignment="Center" VerticalAlignment="Center"
                                                  Visibility="{Binding Miss}"/>
@@ -25,12 +35,24 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type local:MapVM}">
             <Grid>
-                <ItemsControl ItemsSource="{Binding Ship}">
+                <ItemsControl ItemsSource="{Binding Ships}" Width="300" Height="300">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <Canvas />
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Rectangle Fill="Silver" Width="{Binding RangView}" Height="25" RadiusX="20" RadiusY="10">
+                                <Rectangle.RenderTransform>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="{Binding Angle}" CenterX="12.5" CenterY="12.5"/>
+                                        <TranslateTransform X="{Binding X}" Y="{Binding Y}"/>
+                                    </TransformGroup>
+                                </Rectangle.RenderTransform>
+                            </Rectangle>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
                 </ItemsControl>
                 <ItemsControl Grid.Column="1" ItemsSource="{Binding Map}">
                     <ItemsControl.ItemTemplate>
@@ -61,9 +83,6 @@
             <TextBlock Text="{Binding Goal}" d:Text="Goal: 3"/>
 
         </StackPanel>
-        <Grid Grid.Column="1">
-            <Rectangle Fill="Silver" Width="114" Height="24" RadiusX="40" RadiusY="10"/>
-        </Grid>
         <ContentControl Grid.Column="1" Content="{Binding OurMap}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <ContentControl Grid.Column="2" Content="{Binding EnemyMap}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 

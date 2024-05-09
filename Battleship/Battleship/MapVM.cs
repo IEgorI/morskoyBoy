@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using static System.Math;
 using System.Threading.Tasks;
 
 namespace Battleship
 {
     internal class MapVM : ViewModelBase
     {
+        static Random rnd = new Random();   
         CellVM[,] map;
+        public ObservableCollection<ShipVM> Ships { get; } = new ObservableCollection<ShipVM>();
         public CellVM this[int x,int y] => map[y,x];
         public IReadOnlyCollection<IReadOnlyCollection<CellVM>> Map
         {
@@ -32,7 +36,34 @@ namespace Battleship
             {
                 for (int j = 0; j < 10; j++)
                 {
-                    map[i,j].ToShip();
+                    if (mp[i][j] == 'X')
+                    {
+                        map[i,j].ToShip();  
+                    }
+                }
+            }
+        }
+        internal void SetShips(params ShipVM[] ships)
+        {
+            foreach (var ship in ships)
+            {
+                Ships.Add(ship);
+                var (x, y) = ship.Pos;
+                var rang = ship.Rang;
+                var dir = ship.Direct;
+                if (dir == DirectionShip.Horisont)
+                {
+                    for (int j = x; j < x + rang; j++)
+                    {
+                        this[j, y].ToShip();
+                    }
+                }
+                else
+                {
+                    for (int i  = y; i < y + rang; i++)
+                    {
+                        this[x, i].ToShip();
+                    }
                 }
             }
         }
@@ -47,18 +78,139 @@ namespace Battleship
                 }
             }
         }
-
-        private void FillMap()
+        //FillMap(0,4,3,2,1)
+        private List<Ship> fillMap(List<Ship> ships, params int[] navy)
         {
-            var ps = new Dictionary<int, int>{
-                [4] = 1,
-                [3] = 2,
-                [2] = 3,
-                [1] = 4,};
-            for (int p = 4; p > 0; p--)
+            var p = 0;
+            while (p < navy.Length && navy[p] == 0) p++;
+            if (p == navy.Length)
             {
-                int k = ps[p];
+                return ships;
             }
+            else
+            {
+                var ship = new Ship(0, 0, p, DirectionShip.Horisont);
+                navy[p]--;
+                int k = 0;
+                while (k < 10)
+                {
+                    ship.Dir = rnd.Next(2) == 0 ? DirectionShip.Horisont : DirectionShip.Vertical;
+                    if (ship.Dir == DirectionShip.Horisont)
+                    {
+                        ship.X = rnd.Next(11 - p);
+                        ship.Y = rnd.Next(10);
+                    }
+                    else
+                    {
+                        ship.X = rnd.Next(10);
+                        ship.Y = rnd.Next(11 - p);
+                    }
+                    int count = 0;
+                    for (int i = 0; i < ships.Count; i++)
+                    {
+                        if (!ship.Croos(ships[i]))
+                        {
+                            count++;
+                            break;
+                        }
+                    }
+                    if (count == 0)
+                    {
+                        ships.Add(ship);
+                        var result = fillMap(ships, navy);
+                        if (result != null)
+                        {
+                            return result;
+                        }
+                    }
+                }
+                return null;
+            }
+        }
+
+        public void FillMap(params int[] navy)
+        {
+            List<Ship> ships = null;
+            while (ships == null)
+            {
+                ships = fillMap(new List<Ship>(), navy);
+            }
+            foreach (var ship in ships) {
+                if (ship.Dir == DirectionShip.Horisont)
+                {
+                    for (int x = ship.X; x < ship.X + ship.Rang; x++)
+                    {
+                        map[x, ship.Y].ToShip();
+                    }
+                }
+                else
+                {
+                    for (int y = ship.Y; y < ship.Y + ship.Rang; y++)
+                    {
+                        map[ship.X, y].ToShip();
+                    }
+                }
+            }
+            foreach (var ship in ships)
+            {
+                Ships.Add(new ShipVM(ship));
+            }
+        }
+        public struct Ship
+        {
+            public int X, Y, Rang;
+            public DirectionShip Dir;
+            public Ship(int x, int y, int rang, DirectionShip dir)
+            {
+                this.Dir = dir;
+                this.X = x; 
+                this.Y = y; 
+                this.Rang = rang;
+            }
+
+            public bool Croos(Ship other)
+            {
+                (int,int)[,] arrayXY = new (int, int)[3+Rang-1,3];
+                for (int i = 0; i < arrayXY.GetLength(0); i++)
+                {
+                    for (int j = 0; j < arrayXY.GetLength(1); j++)
+                    {
+                        if (Dir == DirectionShip.Horisont)
+                        {
+                            arrayXY[i, j] = (X-1+i,Y-1+j);
+                        }
+                        else
+                        {
+                            arrayXY[i, j] = (X + 1 - j, Y - 1 + i);
+                        }
+                    }
+                }
+                for (int i = 0; i < arrayXY.GetLength(0); i++)
+                {
+                    for (int j = 0; j < arrayXY.GetLength(1); j++)
+                    {
+                        for (int rank = 0; rank < other.Rang; rank++)
+                        {
+                            if (other.Dir == DirectionShip.Horisont)
+                            {
+                                if (arrayXY[i, j] == (other.X + rank, other.Y))
+                                {
+                                    return false;
+                                }
+                            }
+                            else
+                            {
+                                if (arrayXY[i, j] == (other.X, other.Y + rank))
+                                {
+                                    return false;
+                                }
+                            }
+                        }
+                    }
+                }
+                return true;
+            }
+
         }
     }
 }
