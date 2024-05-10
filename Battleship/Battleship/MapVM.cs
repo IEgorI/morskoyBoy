@@ -11,38 +11,38 @@ namespace Battleship
     internal class MapVM : ViewModelBase
     {
         static Random rnd = new Random();   
-        CellVM[,] map;
+        CellVM[,] map; // y, x
         public ObservableCollection<ShipVM> Ships { get; } = new ObservableCollection<ShipVM>();
         public CellVM this[int x,int y] => map[y,x];
         public IReadOnlyCollection<IReadOnlyCollection<CellVM>> Map
         {
             get
             {
-                var map = new List<List<CellVM>>();
-                for (int i = 0; i < 10; i++)
+                var viewMap = new List<List<CellVM>>();
+                for (int y = 0; y < 10; y++)
                 {
-                    map.Add(new List<CellVM>());
-                    for (int j = 0; j < 10; j++)
+                    viewMap.Add(new List<CellVM>());
+                    for (int x = 0; x < 10; x++)
                     {
-                        map[i].Add(this.map[i, j]);
+                        viewMap[y].Add(this.map[x, y]);
                     }
                 }
-                return map;
+                return viewMap;
             }
         }
-        public MapVM(string str) : this() {
-            var mp = str.Split("\r\n", StringSplitOptions.RemoveEmptyEntries);
-            for (int i = 0; i < 10; i++)
-            {
-                for (int j = 0; j < 10; j++)
-                {
-                    if (mp[i][j] == 'X')
-                    {
-                        map[i,j].ToShip();  
-                    }
-                }
-            }
-        }
+        //public MapVM(string str) : this(1) {
+        //    //var mp = str.Split("\r\n", StringSplitOptions.RemoveEmptyEntries);
+        //    //for (int i = 0; i < 10; i++)
+        //    //{
+        //    //    for (int j = 0; j < 10; j++)
+        //    //    {
+        //    //        if (mp[i][j] == 'X')
+        //    //        {
+        //    //            map[i,j].ToShip();  
+        //    //        }
+        //    //    }
+        //    //}
+        //}
         internal void SetShips(params ShipVM[] ships)
         {
             foreach (var ship in ships)
@@ -67,14 +67,14 @@ namespace Battleship
                 }
             }
         }
-        public MapVM()
+        public MapVM(int party)
         {
             map = new CellVM[10, 10];
             for (int i = 0; i < 10; i++)
             {
                 for (int j = 0; j < 10; j++)
                 {
-                    map[i, j] = new CellVM();
+                    map[i, j] = new CellVM(party, i, j);
                 }
             }
         }

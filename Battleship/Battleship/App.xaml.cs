@@ -10,6 +10,7 @@ namespace Battleship
     public partial class App : Application
     {
         public const int CellSize = 30;
+        public static bool FirstShot = true;
     }
 
 }

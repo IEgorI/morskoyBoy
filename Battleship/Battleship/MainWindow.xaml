@@ -38,12 +38,12 @@
                 <ItemsControl ItemsSource="{Binding Ships}" Width="300" Height="300">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <Canvas />
+                            <Canvas/>
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Rectangle Fill="Silver" Width="{Binding RangView}" Height="25" RadiusX="20" RadiusY="10">
+                            <Rectangle Fill="Silver" Visibility="{Binding Alive}" Width="{Binding RangView}" Height="25" RadiusX="20" RadiusY="10">
                                 <Rectangle.RenderTransform>
                                     <TransformGroup>
                                         <RotateTransform Angle="{Binding Angle}" CenterX="12.5" CenterY="12.5"/>
@@ -81,10 +81,8 @@
                        Margin="0,0,0,10"/>
             <TextBlock Text="{Binding Steps}" d:Text="Step: 5"/>
             <TextBlock Text="{Binding Goal}" d:Text="Goal: 3"/>
-
         </StackPanel>
         <ContentControl Grid.Column="1" Content="{Binding OurMap}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <ContentControl Grid.Column="2" Content="{Binding EnemyMap}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
     </Grid>
 </Window>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Battleship
 {
@@ -11,6 +12,7 @@ namespace Battleship
     {
         int rang = 1, x = 0, y = 0;
         (int x, int y) pos;
+        Visibility alive = Visibility.Collapsed;
         DirectionShip dir = DirectionShip.Horisont;
 
         public ShipVM() { }
@@ -31,6 +33,8 @@ namespace Battleship
             set => Set(ref rang, value, "RangView"); } 
 
         public int RangView => Rang * App.CellSize - 5;
+        public int CountSection { get; set; }
+        public Visibility Alive { get => alive; set => Set(ref alive, value, "Alive"); }
         public int Angle => dir == DirectionShip.Horisont ? 0 : 90;
         public (int, int) Pos { 
             get =>pos;
