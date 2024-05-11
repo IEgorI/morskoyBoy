@@ -23,6 +23,8 @@ namespace Battleship
             dir = ship.Dir;
         }
 
+        public int CountOfDestroyedShips { get; set; }
+
         public DirectionShip Direct
         {
             get => dir;

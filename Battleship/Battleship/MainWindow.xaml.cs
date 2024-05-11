@@ -32,23 +32,13 @@ namespace Battleship
             if (cellVM.Shot == Visibility.Collapsed && cellVM.Miss == Visibility.Collapsed && cellVM.Party == 1)
             {
                 var listEnemyShips = bs.EnemyMap.Ships;
-                bs.AliveCheck(listEnemyShips, cellVM);
+                bs.AliveCheck(listEnemyShips, cellVM, 1);
                 cellVM.ToShot();
                 if (cellVM.Shot == Visibility.Collapsed)
                 {
                     bs.ShotToOurMap(); 
                 }
             }
-        }
-
-        private void Border_MouseEnter(object sender, MouseEventArgs e)
-        {
-            //var brd = sender as Border;
-            //var cellVM = brd.DataContext as CellVM;
-            //cellVM.ToShot();
-            //var x = rnd.Next(10);
-            //var y = rnd.Next(10);
-            //bs.ShotToOurMap(x, y);
         }
     }
 }

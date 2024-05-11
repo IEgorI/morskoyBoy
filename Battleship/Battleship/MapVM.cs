@@ -14,6 +14,8 @@ namespace Battleship
         CellVM[,] map; // y, x
         public ObservableCollection<ShipVM> Ships { get; } = new ObservableCollection<ShipVM>();
         public CellVM this[int x,int y] => map[y,x];
+
+        public string Text { get; set; }
         public IReadOnlyCollection<IReadOnlyCollection<CellVM>> Map
         {
             get
@@ -30,19 +32,6 @@ namespace Battleship
                 return viewMap;
             }
         }
-        //public MapVM(string str) : this(1) {
-        //    //var mp = str.Split("\r\n", StringSplitOptions.RemoveEmptyEntries);
-        //    //for (int i = 0; i < 10; i++)
-        //    //{
-        //    //    for (int j = 0; j < 10; j++)
-        //    //    {
-        //    //        if (mp[i][j] == 'X')
-        //    //        {
-        //    //            map[i,j].ToShip();  
-        //    //        }
-        //    //    }
-        //    //}
-        //}
         internal void SetShips(params ShipVM[] ships)
         {
             foreach (var ship in ships)
@@ -76,6 +65,15 @@ namespace Battleship
                 {
                     map[i, j] = new CellVM(party, i, j);
                 }
+            }
+            if (party == 0)
+            {
+                Text = "Твоё поле";
+            }
+            else
+            {
+                Text = "Поле соперника";
+
             }
         }
         //FillMap(0,4,3,2,1)

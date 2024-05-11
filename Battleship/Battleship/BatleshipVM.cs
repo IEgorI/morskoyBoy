@@ -12,20 +12,6 @@ namespace Battleship
             Random rnd = new Random();
 
             string time = "";
-
-            string sampleMap =
-                @"
-**********
-*XXXX***X*
-******X***
-XX*XX***XX
-******X***
-*XXX******
-*****XXX**
-**********
-*X********
-**********
-";
             
             public MapVM OurMap { get; private set; }
             public MapVM EnemyMap { get; private set; }
@@ -51,20 +37,6 @@ XX*XX***XX
                 var dt = now - startTime;
                 Time = dt.ToString(@"mm\:ss");
             }
-            void FillShips()
-            {
-                var ships = OurMap.Ships;
-                ships.Add(new ShipVM {Rang = 4, Pos = (1,1) });
-                ships.Add(new ShipVM {Rang = 3, Pos = (6,1), Direct = DirectionShip.Vertical });
-                ships.Add(new ShipVM {Rang = 3, Pos = (8,1), Direct = DirectionShip.Vertical });
-                ships.Add(new ShipVM {Rang = 2, Pos = (1,3) });
-                ships.Add(new ShipVM {Rang = 2, Pos = (1,5) });
-                ships.Add(new ShipVM {Rang = 2, Pos = (4,3), Direct = DirectionShip.Vertical});
-                ships.Add(new ShipVM {Rang = 1, Pos = (1,9) });
-                ships.Add(new ShipVM {Rang = 1, Pos = (2,7) });
-                ships.Add(new ShipVM {Rang = 1, Pos = (4,7) });
-                ships.Add(new ShipVM {Rang = 1, Pos = (8,9) });
-            }
 
             public void Start() 
             { 
@@ -77,7 +49,7 @@ XX*XX***XX
                 timer.Stop();
             }
 
-            public void AliveCheck(ObservableCollection<ShipVM> listShips, CellVM cellVM)
+            public void AliveCheck(ObservableCollection<ShipVM> listShips, CellVM cellVM, int side)
             {
                 for (int i = 0; i < listShips.Count; i++)
                 {
@@ -97,12 +69,31 @@ XX*XX***XX
                     }
                     if (listShips[i].CountSection == listShips[i].Rang)
                     {
+                        if (listShips[i].Alive == Visibility.Collapsed)
+                        {
+                            if (side == 0)
+                            {
+                                App.CountOfDestroyOurShips += 1;
+                                if (App.CountOfDestroyOurShips == 10)
+                                {
+                                    MessageBox.Show("Вы проиграли!");
+                                }
+                            }
+                            else
+                            {
+                                App.CountOfDestroyEnemyShips += 1;
+                                if (App.CountOfDestroyEnemyShips == 10)
+                                {
+                                    MessageBox.Show("Вы выиграли!");
+                                }
+                            }
+                        }
                         listShips[i].Alive = Visibility.Visible;
                     }
                 }
             }
 
-            internal void ShotToOurMap()
+            internal async void ShotToOurMap()
             {
                 var x = rnd.Next(10);
                 var y = rnd.Next(10);
@@ -118,8 +109,9 @@ XX*XX***XX
                 {
                     App.FirstShot = false;
                 }
-                AliveCheck(OurMap.Ships, OurMap[x, y]);
+                await Task.Delay(1000);
                 OurMap[x, y].ToShot();
+                AliveCheck(OurMap.Ships, OurMap[x, y], 0);
                 while (OurMap[x,y].Shot == Visibility.Visible)
                 {
                     var newX = rnd.Next(10);
@@ -128,8 +120,9 @@ XX*XX***XX
                     {
                         x = newX;
                         y = newY;
-                        AliveCheck(OurMap.Ships, OurMap[x, y]);
+                        await Task.Delay(1000);
                         OurMap[x, y].ToShot();
+                        AliveCheck(OurMap.Ships, OurMap[x, y], 0);
                     }
                 }
             }
