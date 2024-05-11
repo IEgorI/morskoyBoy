@@ -22,7 +22,7 @@ namespace Battleship
         {
             DataContext = bs;
             InitializeComponent();
-
+            bs.Start();
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)

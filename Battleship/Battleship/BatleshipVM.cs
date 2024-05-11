@@ -76,6 +76,7 @@ namespace Battleship
                                 App.CountOfDestroyOurShips += 1;
                                 if (App.CountOfDestroyOurShips == 10)
                                 {
+                                    Stop();
                                     MessageBox.Show("Вы проиграли!");
                                 }
                             }
@@ -84,6 +85,7 @@ namespace Battleship
                                 App.CountOfDestroyEnemyShips += 1;
                                 if (App.CountOfDestroyEnemyShips == 10)
                                 {
+                                    Stop();
                                     MessageBox.Show("Вы выиграли!");
                                 }
                             }
