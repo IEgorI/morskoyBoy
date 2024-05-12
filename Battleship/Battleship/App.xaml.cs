@@ -11,7 +11,6 @@ namespace Battleship
     {
         public const int CellSize = 30;
         public static bool FirstShot = true;
-        public static int CountOfDestroyEnemyShips = 0;
         public static int CountOfDestroyOurShips = 0;
     }
 

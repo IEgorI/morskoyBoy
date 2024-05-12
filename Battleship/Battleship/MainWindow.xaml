@@ -6,13 +6,14 @@
         xmlns:local="clr-namespace:Battleship"
         mc:Ignorable="d"
         FontSize="24"
-        Background="LightGray"
+        Background="White"
+        WindowState="Maximized"
         Title="Морской бой" Height="600" Width="900">
     <Window.Resources>
         <DataTemplate DataType="{x:Type local:CellVM}">
             <Border BorderBrush="#400F" BorderThickness="1" Background="Transparent"   
                                         Width="31" Height="31" Margin="0,0,-1,-1"
-                                        MouseDown="Border_MouseDown">
+                                        MouseDown="Border_MouseDown" MouseEnter="Border_MouseEnter">
                 <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <Grid.RenderTransform>
                         <TransformGroup>
@@ -96,19 +97,18 @@
             </Grid>
         </DataTemplate>
     </Window.Resources>
-    <Grid>
+    <Grid x:Name="status" Background="Gray" Opacity="{Binding Opacity}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Margin="20">
+        <StackPanel Grid.Column="1" Margin="20">
             <TextBlock d:Text="0:00" Text="{Binding Time}" FontSize="36" HorizontalAlignment="Center"
                        Margin="0,0,0,10"/>
-            <TextBlock Text="{Binding Steps}" d:Text="Step: 5"/>
-            <TextBlock Text="{Binding Goal}" d:Text="Goal: 3"/>
+            <TextBlock Visibility="{Binding VisibilityGameStatus}" Grid.Column="0" Grid.ColumnSpan="3" Width="400" Height="50" HorizontalAlignment="Center" TextAlignment="Center" VerticalAlignment="Top" FontSize="40" Text="{Binding StatusGame}"></TextBlock>
         </StackPanel>
-        <ContentControl Grid.Column="1" Content="{Binding OurMap}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <ContentControl Grid.Column="0" Content="{Binding OurMap}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <ContentControl Grid.Column="2" Content="{Binding EnemyMap}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Window>

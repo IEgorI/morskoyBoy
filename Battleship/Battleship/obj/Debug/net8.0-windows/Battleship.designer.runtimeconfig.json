@@ -12,9 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\Фрося\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Фрося\\.nuget\\packages",
-      "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet"
+      "C:\\Users\\lband\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\lband\\.nuget\\packages"
     ],
     "configProperties": {
       "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": true,

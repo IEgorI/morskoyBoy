@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using static System.Math;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Battleship
 {
@@ -16,6 +17,7 @@ namespace Battleship
         public CellVM this[int x,int y] => map[y,x];
 
         public string Text { get; set; }
+
         public IReadOnlyCollection<IReadOnlyCollection<CellVM>> Map
         {
             get
@@ -30,30 +32,6 @@ namespace Battleship
                     }
                 }
                 return viewMap;
-            }
-        }
-        internal void SetShips(params ShipVM[] ships)
-        {
-            foreach (var ship in ships)
-            {
-                Ships.Add(ship);
-                var (x, y) = ship.Pos;
-                var rang = ship.Rang;
-                var dir = ship.Direct;
-                if (dir == DirectionShip.Horisont)
-                {
-                    for (int j = x; j < x + rang; j++)
-                    {
-                        this[j, y].ToShip();
-                    }
-                }
-                else
-                {
-                    for (int i  = y; i < y + rang; i++)
-                    {
-                        this[x, i].ToShip();
-                    }
-                }
             }
         }
         public MapVM(int party)
@@ -126,7 +104,7 @@ namespace Battleship
             }
         }
 
-        public void FillMap(params int[] navy)
+        public void FillMap(int side, params int[] navy)
         {
             List<Ship> ships = null;
             while (ships == null)
@@ -151,7 +129,7 @@ namespace Battleship
             }
             foreach (var ship in ships)
             {
-                Ships.Add(new ShipVM(ship));
+                Ships.Add(new ShipVM(ship, side));
             }
         }
         public struct Ship

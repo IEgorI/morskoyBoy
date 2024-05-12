@@ -19,3 +19,4 @@ C:\Users\lband\Desktop\Battleship\Battleship\obj\Release\net8.0-windows\refint\B
 C:\Users\lband\Desktop\Battleship\Battleship\obj\Release\net8.0-windows\Battleship.pdb
 C:\Users\lband\Desktop\Battleship\Battleship\obj\Release\net8.0-windows\Battleship.genruntimeconfig.cache
 C:\Users\lband\Desktop\Battleship\Battleship\obj\Release\net8.0-windows\ref\Battleship.dll
+C:\Users\lband\Desktop\Battleship\Battleship\obj\Release\net8.0-windows\Battleship.csproj.Fody.CopyLocal.cache

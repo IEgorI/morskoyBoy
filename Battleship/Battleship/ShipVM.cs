@@ -16,11 +16,12 @@ namespace Battleship
         DirectionShip dir = DirectionShip.Horisont;
 
         public ShipVM() { }
-        public ShipVM(MapVM.Ship ship)
+        public ShipVM(MapVM.Ship ship, int side)
         {
             pos = (ship.X, ship.Y);
             rang = ship.Rang;
             dir = ship.Dir;
+            alive = side == 0 ? Visibility.Visible : Visibility.Collapsed;
         }
 
         public int CountOfDestroyedShips { get; set; }

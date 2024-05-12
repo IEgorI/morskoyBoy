@@ -2,6 +2,7 @@
 using System.Windows.Threading;
 using System.Windows;
 using System.Collections.ObjectModel;
+using System.Media;
 
 namespace Battleship
 {
@@ -9,10 +10,25 @@ namespace Battleship
     {
         class BatleshipVM : ViewModelBase
         {
+            static string path = $"{Environment.CurrentDirectory}\\Sound\\explosion.wav";
+            static string pathWin = $"{Environment.CurrentDirectory}\\Sound\\game-won.wav";
+            static string pathLose = $"{Environment.CurrentDirectory}\\Sound\\lose.mp3";
+            SoundPlayer SoundPlayerExplosion = new SoundPlayer(path);
+            SoundPlayer SoundPlayerWin = new SoundPlayer(pathWin);
+            SoundPlayer SoundPlayerLose = new SoundPlayer(pathLose);
             Random rnd = new Random();
 
             string time = "";
-            
+            string statusGame = "";
+            double opacity = 1;
+            Visibility visibilityGameStatus = Visibility.Collapsed;
+            public string StatusGame { get => statusGame; set => Set(ref statusGame, value); }
+            public double Opacity { get => opacity; set => Set(ref opacity, value); }
+            public Visibility VisibilityGameStatus { get => visibilityGameStatus; set => Set(ref visibilityGameStatus, value); }
+            List<ShipVM> ourShip = new List<ShipVM>();
+            List<ShipVM> enemyShip = new List<ShipVM>();
+            public List<ShipVM> DestroyedOurShips {  get => ourShip; }
+            public List<ShipVM> DestroyedEnemyShips { get => enemyShip; }
             public MapVM OurMap { get; private set; }
             public MapVM EnemyMap { get; private set; }
 
@@ -27,9 +43,9 @@ namespace Battleship
                 timer.Interval = TimeSpan.FromMilliseconds(100);
                 timer.Tick += Timer_Tick;
                 OurMap = new MapVM(0);
-                OurMap.FillMap(0,4,3,2,1);
+                OurMap.FillMap(0,0,4,3,2,1);
                 EnemyMap = new MapVM(1);
-                EnemyMap.FillMap(0,4,3,2,1);
+                EnemyMap.FillMap(1,0,4,3,2,1);
             }
             private void Timer_Tick(object? sender, EventArgs e)
             {
@@ -67,26 +83,35 @@ namespace Battleship
                             listShips[i].CountSection += 1;
                         }
                     }
-                    if (listShips[i].CountSection == listShips[i].Rang)
+                    if (listShips[i].CountSection == listShips[i].Rang && !DestroyedOurShips.Contains(listShips[i]) && !DestroyedEnemyShips.Contains(listShips[i]))
                     {
-                        if (listShips[i].Alive == Visibility.Collapsed)
+                        SoundPlayerExplosion.Play();
+                        bool cont1 = !DestroyedOurShips.Contains(listShips[i]);
+                        bool cont2 = !DestroyedEnemyShips.Contains(listShips[i]);
+                        if (DestroyedEnemyShips == null || DestroyedOurShips == null || !DestroyedOurShips.Contains(listShips[i]) || !DestroyedEnemyShips.Contains(listShips[i]))
                         {
                             if (side == 0)
                             {
-                                App.CountOfDestroyOurShips += 1;
-                                if (App.CountOfDestroyOurShips == 10)
+                                ourShip.Add(listShips[i]);
+                                if (DestroyedOurShips.Count == 10)
                                 {
                                     Stop();
-                                    MessageBox.Show("Вы проиграли!");
+                                    SoundPlayerLose.Play();
+                                    StatusGame = "Поражение!";
+                                    Opacity = 0.5;
+                                    VisibilityGameStatus = Visibility.Visible;
                                 }
                             }
                             else
                             {
-                                App.CountOfDestroyEnemyShips += 1;
-                                if (App.CountOfDestroyEnemyShips == 10)
+                                enemyShip.Add(listShips[i]);
+                                if (DestroyedEnemyShips.Count == 10)
                                 {
                                     Stop();
-                                    MessageBox.Show("Вы выиграли!");
+                                    SoundPlayerWin.Play();
+                                    StatusGame = "Победа!";
+                                    Opacity = 0.5;
+                                    VisibilityGameStatus = Visibility.Visible;
                                 }
                             }
                         }
