@@ -40,21 +40,5 @@ namespace Battleship
                 }
             }
         }
-
-        private void Border_MouseEnter(object sender, MouseEventArgs e)
-        {
-            var brd = sender as Border;
-            var cellVM = brd.DataContext as CellVM;
-            if (cellVM.Shot == Visibility.Collapsed && cellVM.Miss == Visibility.Collapsed && cellVM.Party == 1)
-            {
-                var listEnemyShips = bs.EnemyMap.Ships;
-                bs.AliveCheck(listEnemyShips, cellVM, 1);
-                cellVM.ToShot();
-                if (cellVM.Shot == Visibility.Collapsed)
-                {
-                    bs.ShotToOurMap();
-                }
-            }
-        }
     }
 }

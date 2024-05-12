@@ -1,21 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lband\\Desktop\\Battleship\\Battleship\\Battleship.csproj": {}
+    "C:\\Users\\Фрося\\Desktop\\MorskoyBoy\\morskoyBoy\\Battleship\\Battleship\\Battleship.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lband\\Desktop\\Battleship\\Battleship\\Battleship.csproj": {
+    "C:\\Users\\Фрося\\Desktop\\MorskoyBoy\\morskoyBoy\\Battleship\\Battleship\\Battleship.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lband\\Desktop\\Battleship\\Battleship\\Battleship.csproj",
+        "projectUniqueName": "C:\\Users\\Фрося\\Desktop\\MorskoyBoy\\morskoyBoy\\Battleship\\Battleship\\Battleship.csproj",
         "projectName": "Battleship",
-        "projectPath": "C:\\Users\\lband\\Desktop\\Battleship\\Battleship\\Battleship.csproj",
-        "packagesPath": "C:\\Users\\lband\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lband\\Desktop\\Battleship\\Battleship\\obj\\",
+        "projectPath": "C:\\Users\\Фрося\\Desktop\\MorskoyBoy\\morskoyBoy\\Battleship\\Battleship\\Battleship.csproj",
+        "packagesPath": "C:\\Users\\Фрося\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Фрося\\Desktop\\MorskoyBoy\\morskoyBoy\\Battleship\\Battleship\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\lband\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Фрося\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0-windows"

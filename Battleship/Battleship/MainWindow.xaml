@@ -13,7 +13,7 @@
         <DataTemplate DataType="{x:Type local:CellVM}">
             <Border BorderBrush="#400F" BorderThickness="1" Background="Transparent"   
                                         Width="31" Height="31" Margin="0,0,-1,-1"
-                                        MouseDown="Border_MouseDown" MouseEnter="Border_MouseEnter">
+                                        MouseDown="Border_MouseDown">
                 <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <Grid.RenderTransform>
                         <TransformGroup>
