@@ -7,4 +7,6 @@ Visual studio 2022, технология WPF, SQL Server Management Studio 18
 ![image](https://github.com/IEgorI/morskoyBoy/assets/112765542/32b34145-902a-4863-bb3b-8c87fc75c57d)
 # Возможности проекта
 Сражение с исскуственным интеллектом в классической игре Морской бой.
+# Ссылка на билд
+https://cloud.mail.ru/public/nn23/ngu8eGVB9
 
