@@ -10,7 +10,7 @@ namespace Battleship
     enum DirectionShip { Horisont, Vertical}
     class ShipVM : ViewModelBase
     {
-        int rang = 1, x = 0, y = 0;
+        int rang = 1;
         (int x, int y) pos;
         Visibility alive = Visibility.Collapsed;
         DirectionShip dir = DirectionShip.Horisont;

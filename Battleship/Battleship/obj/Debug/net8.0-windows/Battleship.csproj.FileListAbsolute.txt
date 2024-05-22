@@ -58,7 +58,6 @@ C:\Users\Фрося\Desktop\MorskoyBoy\morskoyBoy\Battleship\Battleship\obj\Debu
 C:\Users\Фрося\Desktop\MorskoyBoy\morskoyBoy\Battleship\Battleship\obj\Debug\net8.0-windows\Battleship.AssemblyInfo.cs
 C:\Users\Фрося\Desktop\MorskoyBoy\morskoyBoy\Battleship\Battleship\obj\Debug\net8.0-windows\Battleship.csproj.CoreCompileInputs.cache
 C:\Users\Фрося\Desktop\MorskoyBoy\morskoyBoy\Battleship\Battleship\obj\Debug\net8.0-windows\Battleship.sourcelink.json
-C:\Users\Фрося\Desktop\MorskoyBoy\morskoyBoy\Battleship\Battleship\obj\Debug\net8.0-windows\Battleship.csproj.Fody.CopyLocal.cache
 C:\Users\Фрося\Desktop\MorskoyBoy\morskoyBoy\Battleship\Battleship\obj\Debug\net8.0-windows\Battleship.dll
 C:\Users\Фрося\Desktop\MorskoyBoy\morskoyBoy\Battleship\Battleship\obj\Debug\net8.0-windows\refint\Battleship.dll
 C:\Users\Фрося\Desktop\MorskoyBoy\morskoyBoy\Battleship\Battleship\obj\Debug\net8.0-windows\Battleship.pdb

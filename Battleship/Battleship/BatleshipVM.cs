@@ -3,6 +3,7 @@ using System.Windows.Threading;
 using System.Windows;
 using System.Collections.ObjectModel;
 using System.Media;
+using System.Linq;
 
 namespace Battleship
 {
@@ -12,7 +13,7 @@ namespace Battleship
         {
             static string path = $"{Environment.CurrentDirectory}\\Sound\\explosion.wav";
             static string pathWin = $"{Environment.CurrentDirectory}\\Sound\\game-won.wav";
-            static string pathLose = $"{Environment.CurrentDirectory}\\Sound\\lose.mp3";
+            static string pathLose = $"{Environment.CurrentDirectory}\\Sound\\lose.wav";
             SoundPlayer SoundPlayerExplosion = new SoundPlayer(path);
             SoundPlayer SoundPlayerWin = new SoundPlayer(pathWin);
             SoundPlayer SoundPlayerLose = new SoundPlayer(pathLose);
@@ -27,8 +28,13 @@ namespace Battleship
             public Visibility VisibilityGameStatus { get => visibilityGameStatus; set => Set(ref visibilityGameStatus, value); }
             List<ShipVM> ourShip = new List<ShipVM>();
             List<ShipVM> enemyShip = new List<ShipVM>();
-            public List<ShipVM> DestroyedOurShips {  get => ourShip; }
-            public List<ShipVM> DestroyedEnemyShips { get => enemyShip; }
+            public List<ShipVM> DestroyedOurShips { 
+                get => ourShip; 
+                set => Set(ref ourShip, value); }
+            public List<ShipVM> DestroyedEnemyShips { 
+                get => enemyShip; 
+                set => Set(ref enemyShip, value); 
+            }
             public MapVM OurMap { get; private set; }
             public MapVM EnemyMap { get; private set; }
 
@@ -47,7 +53,7 @@ namespace Battleship
                 EnemyMap = new MapVM(1);
                 EnemyMap.FillMap(1,0,4,3,2,1);
             }
-            private void Timer_Tick(object? sender, EventArgs e)
+            private void Timer_Tick(object sender, EventArgs e)
             {
                 var now = DateTime.Now;
                 var dt = now - startTime;
@@ -86,13 +92,12 @@ namespace Battleship
                     if (listShips[i].CountSection == listShips[i].Rang && !DestroyedOurShips.Contains(listShips[i]) && !DestroyedEnemyShips.Contains(listShips[i]))
                     {
                         SoundPlayerExplosion.Play();
-                        bool cont1 = !DestroyedOurShips.Contains(listShips[i]);
-                        bool cont2 = !DestroyedEnemyShips.Contains(listShips[i]);
                         if (DestroyedEnemyShips == null || DestroyedOurShips == null || !DestroyedOurShips.Contains(listShips[i]) || !DestroyedEnemyShips.Contains(listShips[i]))
                         {
                             if (side == 0)
                             {
                                 ourShip.Add(listShips[i]);
+                                Notify("DestroyedOurShips");
                                 if (DestroyedOurShips.Count == 10)
                                 {
                                     Stop();
@@ -105,6 +110,7 @@ namespace Battleship
                             else
                             {
                                 enemyShip.Add(listShips[i]);
+                                Notify("DestroyedEnemyShips");
                                 if (DestroyedEnemyShips.Count == 10)
                                 {
                                     Stop();
@@ -137,19 +143,29 @@ namespace Battleship
                     App.FirstShot = false;
                 }
                 await Task.Delay(1000);
-                OurMap[x, y].ToShot();
+                if (ourShip.Count < 10)
+                {
+                    OurMap[x, y].ToShot();
+                }
                 AliveCheck(OurMap.Ships, OurMap[x, y], 0);
                 while (OurMap[x,y].Shot == Visibility.Visible)
                 {
-                    var newX = rnd.Next(10);
-                    var newY = rnd.Next(10);
-                    if (OurMap[newX, newY].Shot == Visibility.Collapsed && OurMap[newX, newY].Miss == Visibility.Collapsed)
+                    if (ourShip.Count < 10)
                     {
-                        x = newX;
-                        y = newY;
-                        await Task.Delay(1000);
-                        OurMap[x, y].ToShot();
-                        AliveCheck(OurMap.Ships, OurMap[x, y], 0);
+                        var newX = rnd.Next(10);
+                        var newY = rnd.Next(10);
+                        if (OurMap[newX, newY].Shot == Visibility.Collapsed && OurMap[newX, newY].Miss == Visibility.Collapsed)
+                        {
+                            x = newX;
+                            y = newY;
+                            await Task.Delay(1000);
+                            OurMap[x, y].ToShot();
+                            AliveCheck(OurMap.Ships, OurMap[x, y], 0);
+                        }
+                    }
+                    else
+                    {
+                        break;
                     }
                 }
             }

@@ -7,20 +7,20 @@
       "RelativeMoniker": "D:0:0:{58A5A4CB-B11E-4F5A-ADD2-FA0CAE576829}|Battleship\\Battleship.csproj|solutionrelative:battleship\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{58A5A4CB-B11E-4F5A-ADD2-FA0CAE576829}|Battleship\\Battleship.csproj|c:\\users\\\u0444\u0440\u043E\u0441\u044F\\desktop\\morskoyboy\\morskoyboy\\battleship\\battleship\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{58A5A4CB-B11E-4F5A-ADD2-FA0CAE576829}|Battleship\\Battleship.csproj|solutionrelative:battleship\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{58A5A4CB-B11E-4F5A-ADD2-FA0CAE576829}|Battleship\\Battleship.csproj|c:\\users\\\u0444\u0440\u043E\u0441\u044F\\desktop\\morskoyboy\\morskoyboy\\battleship\\battleship\\batleshipvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{58A5A4CB-B11E-4F5A-ADD2-FA0CAE576829}|Battleship\\Battleship.csproj|solutionrelative:battleship\\batleshipvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{58A5A4CB-B11E-4F5A-ADD2-FA0CAE576829}|Battleship\\Battleship.csproj|c:\\users\\\u0444\u0440\u043E\u0441\u044F\\desktop\\morskoyboy\\morskoyboy\\battleship\\battleship\\mapvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{58A5A4CB-B11E-4F5A-ADD2-FA0CAE576829}|Battleship\\Battleship.csproj|solutionrelative:battleship\\mapvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{58A5A4CB-B11E-4F5A-ADD2-FA0CAE576829}|Battleship\\Battleship.csproj|c:\\users\\\u0444\u0440\u043E\u0441\u044F\\desktop\\morskoyboy\\morskoyboy\\battleship\\battleship\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{58A5A4CB-B11E-4F5A-ADD2-FA0CAE576829}|Battleship\\Battleship.csproj|solutionrelative:battleship\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{58A5A4CB-B11E-4F5A-ADD2-FA0CAE576829}|Battleship\\Battleship.csproj|c:\\users\\\u0444\u0440\u043E\u0441\u044F\\desktop\\morskoyboy\\morskoyboy\\battleship\\battleship\\shipvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{58A5A4CB-B11E-4F5A-ADD2-FA0CAE576829}|Battleship\\Battleship.csproj|solutionrelative:battleship\\shipvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{58A5A4CB-B11E-4F5A-ADD2-FA0CAE576829}|Battleship\\Battleship.csproj|c:\\users\\\u0444\u0440\u043E\u0441\u044F\\desktop\\morskoyboy\\morskoyboy\\battleship\\battleship\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{58A5A4CB-B11E-4F5A-ADD2-FA0CAE576829}|Battleship\\Battleship.csproj|solutionrelative:battleship\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{58A5A4CB-B11E-4F5A-ADD2-FA0CAE576829}|Battleship\\Battleship.csproj|c:\\users\\\u0444\u0440\u043E\u0441\u044F\\desktop\\morskoyboy\\morskoyboy\\battleship\\battleship\\cellvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{58A5A4CB-B11E-4F5A-ADD2-FA0CAE576829}|Battleship\\Battleship.csproj|solutionrelative:battleship\\cellvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,31 +30,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "ShipVM.cs",
-              "DocumentMoniker": "C:\\Users\\\u0424\u0440\u043E\u0441\u044F\\Desktop\\MorskoyBoy\\morskoyBoy\\Battleship\\Battleship\\ShipVM.cs",
-              "RelativeDocumentMoniker": "Battleship\\ShipVM.cs",
-              "ToolTip": "C:\\Users\\\u0424\u0440\u043E\u0441\u044F\\Desktop\\MorskoyBoy\\morskoyBoy\\Battleship\\Battleship\\ShipVM.cs",
-              "RelativeToolTip": "Battleship\\ShipVM.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAoAAAAEAAAA",
+              "Title": "CellVM.cs",
+              "DocumentMoniker": "C:\\Users\\\u0424\u0440\u043E\u0441\u044F\\Desktop\\MorskoyBoy\\morskoyBoy\\Battleship\\Battleship\\CellVM.cs",
+              "RelativeDocumentMoniker": "Battleship\\CellVM.cs",
+              "ToolTip": "C:\\Users\\\u0424\u0440\u043E\u0441\u044F\\Desktop\\MorskoyBoy\\morskoyBoy\\Battleship\\Battleship\\CellVM.cs",
+              "RelativeToolTip": "Battleship\\CellVM.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAowCEAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-11T19:29:37.926Z"
+              "WhenOpened": "2024-05-21T12:25:27.956Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
+              "Title": "ViewModelBase.cs",
+              "DocumentMoniker": "C:\\Users\\\u0424\u0440\u043E\u0441\u044F\\Desktop\\MorskoyBoy\\morskoyBoy\\Battleship\\Battleship\\ViewModelBase.cs",
+              "RelativeDocumentMoniker": "Battleship\\ViewModelBase.cs",
+              "ToolTip": "C:\\Users\\\u0424\u0440\u043E\u0441\u044F\\Desktop\\MorskoyBoy\\morskoyBoy\\Battleship\\Battleship\\ViewModelBase.cs",
+              "RelativeToolTip": "Battleship\\ViewModelBase.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAAAB8AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T11:01:34.707Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "BatleshipVM.cs",
               "DocumentMoniker": "C:\\Users\\\u0424\u0440\u043E\u0441\u044F\\Desktop\\MorskoyBoy\\morskoyBoy\\Battleship\\Battleship\\BatleshipVM.cs",
               "RelativeDocumentMoniker": "Battleship\\BatleshipVM.cs",
               "ToolTip": "C:\\Users\\\u0424\u0440\u043E\u0441\u044F\\Desktop\\MorskoyBoy\\morskoyBoy\\Battleship\\Battleship\\BatleshipVM.cs",
               "RelativeToolTip": "Battleship\\BatleshipVM.cs",
-              "ViewState": "AQIAAFUAAAAAAAAAAAAnwGsAAABEAAAA",
+              "ViewState": "AQIAAFoAAAAAAAAAAAAAAGsAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-11T19:20:19.502Z",
+              "WhenOpened": "2024-05-21T10:05:51.011Z",
               "EditorCaption": ""
             },
             {
@@ -66,33 +78,20 @@
               "ToolTip": "C:\\Users\\\u0424\u0440\u043E\u0441\u044F\\Desktop\\MorskoyBoy\\morskoyBoy\\Battleship\\Battleship\\MainWindow.xaml",
               "RelativeToolTip": "Battleship\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-11T19:16:10.317Z",
+              "WhenOpened": "2024-05-21T12:17:52.066Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\\u0424\u0440\u043E\u0441\u044F\\Desktop\\MorskoyBoy\\morskoyBoy\\Battleship\\Battleship\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Battleship\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\\u0424\u0440\u043E\u0441\u044F\\Desktop\\MorskoyBoy\\morskoyBoy\\Battleship\\Battleship\\MainWindow.xaml.cs",
               "RelativeToolTip": "Battleship\\MainWindow.xaml.cs",
-              "ViewState": "AQIAACcAAAAAAAAAAAAgwCkAAAAJAAAA",
+              "ViewState": "AQIAABMAAAAAAAAAAAAAAB0AAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-11T19:15:42.429Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MapVM.cs",
-              "DocumentMoniker": "C:\\Users\\\u0424\u0440\u043E\u0441\u044F\\Desktop\\MorskoyBoy\\morskoyBoy\\Battleship\\Battleship\\MapVM.cs",
-              "RelativeDocumentMoniker": "Battleship\\MapVM.cs",
-              "ToolTip": "C:\\Users\\\u0424\u0440\u043E\u0441\u044F\\Desktop\\MorskoyBoy\\morskoyBoy\\Battleship\\Battleship\\MapVM.cs",
-              "RelativeToolTip": "Battleship\\MapVM.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAjwBIAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-11T19:14:52.453Z"
+              "WhenOpened": "2024-05-20T18:29:15.597Z"
             }
           ]
         }

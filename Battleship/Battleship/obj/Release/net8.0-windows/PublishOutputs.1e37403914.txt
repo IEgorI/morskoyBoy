@@ -1,0 +1,5 @@
+C:\Users\Фрося\Desktop\MorskoyBoy\morskoyBoy\Battleship\Battleship\bin\Release\net8.0-windows\publish\Battleship.exe
+C:\Users\Фрося\Desktop\MorskoyBoy\morskoyBoy\Battleship\Battleship\bin\Release\net8.0-windows\publish\Battleship.dll
+C:\Users\Фрося\Desktop\MorskoyBoy\morskoyBoy\Battleship\Battleship\bin\Release\net8.0-windows\publish\Battleship.deps.json
+C:\Users\Фрося\Desktop\MorskoyBoy\morskoyBoy\Battleship\Battleship\bin\Release\net8.0-windows\publish\Battleship.runtimeconfig.json
+C:\Users\Фрося\Desktop\MorskoyBoy\morskoyBoy\Battleship\Battleship\bin\Release\net8.0-windows\publish\Battleship.pdb

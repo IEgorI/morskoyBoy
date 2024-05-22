@@ -106,7 +106,19 @@
         <StackPanel Grid.Column="1" Margin="20">
             <TextBlock d:Text="0:00" Text="{Binding Time}" FontSize="36" HorizontalAlignment="Center"
                        Margin="0,0,0,10"/>
-            <TextBlock Visibility="{Binding VisibilityGameStatus}" Grid.Column="0" Grid.ColumnSpan="3" Width="400" Height="50" HorizontalAlignment="Center" TextAlignment="Center" VerticalAlignment="Top" FontSize="40" Text="{Binding StatusGame}"></TextBlock>
+            <TextBlock Visibility="{Binding VisibilityGameStatus}" Grid.Column="0" Grid.ColumnSpan="3" 
+                       Width="400" Height="50" HorizontalAlignment="Center" TextAlignment="Center" 
+                       VerticalAlignment="Top" FontSize="40" Text="{Binding StatusGame}"></TextBlock>
+            <StackPanel Margin="0,110,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Grid.ColumnSpan="3">
+                <TextBlock TextAlignment="Center" FontSize="20" Text="Уничтожено твоих кораблей: "></TextBlock>
+                <TextBlock VerticalAlignment="Center" FontSize="20" Grid.ColumnSpan="3" 
+                        TextAlignment="Center" Text="{Binding DestroyedOurShips.Count}"></TextBlock>
+            </StackPanel>
+            <StackPanel Margin="0,10,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Grid.ColumnSpan="3">
+                <TextBlock TextAlignment="Center" FontSize="20" Text="Уничтожено кораблей соперника: "></TextBlock>
+                <TextBlock VerticalAlignment="Center" FontSize="20" Grid.ColumnSpan="3" 
+                        TextAlignment="Center" Text="{Binding DestroyedEnemyShips.Count}"></TextBlock>
+            </StackPanel>
         </StackPanel>
         <ContentControl Grid.Column="0" Content="{Binding OurMap}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <ContentControl Grid.Column="2" Content="{Binding EnemyMap}" HorizontalAlignment="Center" VerticalAlignment="Center"/>

@@ -1,0 +1,2 @@
+C:\Users\Фрося\Desktop\MorskoyBoy\morskoyBoy\Battleship\Battleship\bin\Release\net8.0-windows\publish\win-x64\Battleship.pdb
+C:\Users\Фрося\Desktop\MorskoyBoy\morskoyBoy\Battleship\Battleship\bin\Release\net8.0-windows\publish\win-x64\Battleship.exe
