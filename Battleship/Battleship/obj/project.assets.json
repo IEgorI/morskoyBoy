@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Фрося\\Desktop\\MorskoyBoy\\morskoyBoy\\Battleship\\Battleship\\Battleship.csproj",
+      "projectUniqueName": "C:\\Users\\Фрося\\Desktop\\Battleship\\Battleship\\Battleship.csproj",
       "projectName": "Battleship",
-      "projectPath": "C:\\Users\\Фрося\\Desktop\\MorskoyBoy\\morskoyBoy\\Battleship\\Battleship\\Battleship.csproj",
+      "projectPath": "C:\\Users\\Фрося\\Desktop\\Battleship\\Battleship\\Battleship.csproj",
       "packagesPath": "C:\\Users\\Фрося\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Фрося\\Desktop\\MorskoyBoy\\morskoyBoy\\Battleship\\Battleship\\obj\\",
+      "outputPath": "C:\\Users\\Фрося\\Desktop\\Battleship\\Battleship\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"

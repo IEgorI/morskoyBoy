@@ -12,6 +12,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Battleship
-build_property.ProjectDir = C:\Users\Фрося\Desktop\MorskoyBoy\morskoyBoy\Battleship\Battleship\
+build_property.ProjectDir = C:\Users\Фрося\Desktop\Battleship\Battleship\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

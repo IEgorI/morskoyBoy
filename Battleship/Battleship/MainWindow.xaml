@@ -37,6 +37,7 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type local:MapVM}">
             <Grid>
+                <Button Visibility="{Binding BtnVisibility}" x:Name="btnFleet" Height="40" Width="200" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,-550,0,0" Content="Разместить флот" Click="btnFleet_Click"></Button>
                 <TextBlock Text="{Binding Text}" HorizontalAlignment="Center" Margin="0,-70,0,0"/>
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="-35,-1,0,0">
                     <TextBlock Width="31" Height="31" Margin="0,0,-1,-1" TextAlignment="Center">1</TextBlock>
@@ -97,7 +98,7 @@
             </Grid>
         </DataTemplate>
     </Window.Resources>
-    <Grid x:Name="status" Background="Gray" Opacity="{Binding Opacity}">
+    <Grid x:Name="status" Background="Gray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="2*"/>
@@ -109,6 +110,8 @@
             <TextBlock Visibility="{Binding VisibilityGameStatus}" Grid.Column="0" Grid.ColumnSpan="3" 
                        Width="400" Height="50" HorizontalAlignment="Center" TextAlignment="Center" 
                        VerticalAlignment="Top" FontSize="40" Text="{Binding StatusGame}"></TextBlock>
+            <Button x:Name="btnGame" Height="40" Visibility="{Binding VisibilityGameBtn}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                    Width="200" Content="Заново" Click="btnGame_Click"></Button>
             <StackPanel Margin="0,110,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Grid.ColumnSpan="3">
                 <TextBlock TextAlignment="Center" FontSize="20" Text="Уничтожено твоих кораблей: "></TextBlock>
                 <TextBlock VerticalAlignment="Center" FontSize="20" Grid.ColumnSpan="3" 

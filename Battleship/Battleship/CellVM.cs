@@ -16,6 +16,7 @@ namespace Battleship
         public float ShiftY { get; } = 1 + rnd.Next(-20, 20) / 10.0f;
         public int Party { get; }
         bool ship, shot;
+        public bool clear = false;
 
         public CellVM() { }
         public CellVM(int party, int x, int y)
@@ -24,19 +25,34 @@ namespace Battleship
             this.X = x; 
             this.Y = y;
         }
-        public Visibility Miss => shot && !ship ? Visibility.Visible : Visibility.Collapsed;
+        public Visibility Miss => shot && !ship && !clear ? Visibility.Visible : Visibility.Collapsed;
 
-        public Visibility Shot => shot && ship ? Visibility.Visible : Visibility.Collapsed;
+        public Visibility Shot => shot && ship && !clear ? Visibility.Visible : Visibility.Collapsed;
 
         public void ToShot()
         {
             shot = true;
             Notify("Miss", "Shot");
         }
+        public void ToShotUndo()
+        {
+            shot = false;
+            Notify("Miss", "Shot");
+        }
         public void ToShip()
         {
             ship = true;
         }
-
+        public void ToMiss()
+        {
+            ship = false;
+        }
+        public void ToClear()
+        {
+            clear = true;
+            Notify("Miss", "Shot");
+            clear = false;
+            Notify("Miss", "Shot");
+        }
     }
 }

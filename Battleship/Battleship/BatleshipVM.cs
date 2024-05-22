@@ -21,13 +21,13 @@ namespace Battleship
 
             string time = "";
             string statusGame = "";
-            double opacity = 1;
             Visibility visibilityGameStatus = Visibility.Collapsed;
+            Visibility visibilityGameBtn = Visibility.Collapsed;
             public string StatusGame { get => statusGame; set => Set(ref statusGame, value); }
-            public double Opacity { get => opacity; set => Set(ref opacity, value); }
             public Visibility VisibilityGameStatus { get => visibilityGameStatus; set => Set(ref visibilityGameStatus, value); }
-            List<ShipVM> ourShip = new List<ShipVM>();
-            List<ShipVM> enemyShip = new List<ShipVM>();
+            public Visibility VisibilityGameBtn { get => visibilityGameBtn; set => Set(ref visibilityGameBtn, value); }
+            public List<ShipVM> ourShip = new List<ShipVM>();
+            public List<ShipVM> enemyShip = new List<ShipVM>();
             public List<ShipVM> DestroyedOurShips { 
                 get => ourShip; 
                 set => Set(ref ourShip, value); }
@@ -70,6 +70,10 @@ namespace Battleship
             {
                 timer.Stop();
             }
+            public void UpdateShips()
+            {
+                Notify("DestroyedOurShips", "DestroyedEnemyShips");
+            }
 
             public void AliveCheck(ObservableCollection<ShipVM> listShips, CellVM cellVM, int side)
             {
@@ -103,8 +107,8 @@ namespace Battleship
                                     Stop();
                                     SoundPlayerLose.Play();
                                     StatusGame = "Поражение!";
-                                    Opacity = 0.5;
                                     VisibilityGameStatus = Visibility.Visible;
+                                    VisibilityGameBtn = Visibility.Visible;
                                 }
                             }
                             else
@@ -116,8 +120,8 @@ namespace Battleship
                                     Stop();
                                     SoundPlayerWin.Play();
                                     StatusGame = "Победа!";
-                                    Opacity = 0.5;
                                     VisibilityGameStatus = Visibility.Visible;
+                                    VisibilityGameBtn = Visibility.Visible;
                                 }
                             }
                         }
@@ -141,6 +145,7 @@ namespace Battleship
                 else
                 {
                     App.FirstShot = false;
+                    OurMap.BtnVisibility = Visibility.Collapsed;
                 }
                 await Task.Delay(1000);
                 if (ourShip.Count < 10)

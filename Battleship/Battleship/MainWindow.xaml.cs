@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Reflection;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -39,6 +40,32 @@ namespace Battleship
                     bs.ShotToOurMap(); 
                 }
             }
+        }
+
+        private async void btnFleet_Click(object sender, RoutedEventArgs e)
+        {
+            bs.OurMap.Clear();
+            bs.OurMap.FillMap(0, 0, 4, 3, 2, 1);
+            (sender as Button).IsEnabled = false;
+            await Task.Delay(2000);
+            (sender as Button).IsEnabled = true;
+        }
+
+        private void btnGame_Click(object sender, RoutedEventArgs e)
+        {
+            bs.VisibilityGameBtn = Visibility.Collapsed;
+            bs.DestroyedOurShips.Clear();
+            bs.DestroyedEnemyShips.Clear();
+            bs.UpdateShips();
+            bs.OurMap.Clear();
+            bs.EnemyMap.ClearMap();
+            bs.OurMap.ClearMap();
+            bs.EnemyMap.Clear();
+            bs.EnemyMap.FillMap(1, 0, 4, 3, 2, 1);
+            bs.VisibilityGameStatus = Visibility.Collapsed;
+            bs.OurMap.BtnVisibility = Visibility.Visible;
+            App.FirstShot = true;
+            bs.Start();
         }
     }
 }

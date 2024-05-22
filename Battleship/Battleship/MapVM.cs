@@ -13,12 +13,14 @@ namespace Battleship
     {
         static Random rnd = new Random();   
         CellVM[,] map; // y, x
+        Visibility btnVisibility = Visibility.Visible;
         public ObservableCollection<ShipVM> Ships { get; } = new ObservableCollection<ShipVM>();
         public CellVM this[int x,int y] => map[y,x];
 
         public string Text { get; set; }
+        public Visibility BtnVisibility {  get => btnVisibility; set =>Set(ref btnVisibility, value); } 
 
-        public IReadOnlyCollection<IReadOnlyCollection<CellVM>> Map
+        public List<List<CellVM>> Map
         {
             get
             {
@@ -51,7 +53,7 @@ namespace Battleship
             else
             {
                 Text = "Поле соперника";
-
+                btnVisibility = Visibility.Collapsed;
             }
         }
         //FillMap(0,4,3,2,1)
@@ -130,6 +132,29 @@ namespace Battleship
             foreach (var ship in ships)
             {
                 Ships.Add(new ShipVM(ship, side));
+            }
+        }
+
+        public void Clear()
+        {
+            Ships.Clear();
+            for (int i = 0; i < map.GetLength(0); i++)
+            {
+                for (int j = 0; j < map.GetLength(1); j++)
+                {
+                    map[i, j].ToMiss();
+                }
+            }
+        }
+        public void ClearMap()
+        {
+            for (int i = 0; i < map.GetLength(0); i++)
+            {
+                for (int j = 0; j < map.GetLength(1); j++)
+                {
+                    Map[i][j].ToShotUndo();
+                    Map[i][j].ToClear();
+                }
             }
         }
         public struct Ship

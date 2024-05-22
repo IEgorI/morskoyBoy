@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "H0NwUWAhEJenTgXfvPl/h+r4OqMqNvU2FlKbLcaxuxf+dWHgoBuhfk4dRQ0QfX3qaroYg50jYtIwyvZc4TUfHw==",
+  "dgSpecHash": "/EOLd3YLUVINgWR3a0WjEq/zAl9MyxnDZRkAe7kCWqpVqCHfQ2bi25dHqNTsVI4yzfwQIFrKgih4WJtct+JciA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Фрося\\Desktop\\MorskoyBoy\\morskoyBoy\\Battleship\\Battleship\\Battleship.csproj",
+  "projectFilePath": "C:\\Users\\Фрося\\Desktop\\Battleship\\Battleship\\Battleship.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Фрося\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.4\\microsoft.net.illink.tasks.8.0.4.nupkg.sha512",
     "C:\\Users\\Фрося\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\8.0.4\\microsoft.netcore.app.runtime.win-x64.8.0.4.nupkg.sha512",
